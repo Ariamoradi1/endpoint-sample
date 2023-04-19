@@ -76,13 +76,13 @@ const Navbar = () => {
     };
     return(
         <>
-        <nav>
-        <ul>
-            <li><img src="logo.svg" alt="logo" /></li>
+        <nav className='w-full mt-4 ml-4'>
+        <ul className='flex'>
+            <li className='list-none'><img src="logo.svg" alt="logo" /></li>
             {myOption.map(item => (
                 <>
                 <Button
-        className='nav-button'
+        className='bg-white text-black hover:bg-white '
         id={`demo-customized-button-${item.id}`}
         aria-controls={`demo-customized-menu-${item.id}`}
         aria-haspopup="true"
@@ -120,9 +120,9 @@ const Navbar = () => {
       </StyledMenu>
                 </>
             ))}
-            <div className="nav-texts">
-            <Typography className='signin'>signIn</Typography>
-            <Typography className='contact'>Contact Us</Typography>
+            <div className="flex ml-80 mt-2 cursor-pointer">
+            <Typography className='mr-5 hover:text-blue-400'>signIn</Typography>
+            <Typography className='hover:text-blue-400'>Contact Us</Typography>
             </div>
         </ul>
         </nav>
