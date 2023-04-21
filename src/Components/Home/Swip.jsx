@@ -31,15 +31,27 @@ const Swip = () => {
         avatar:'wash.png'
         },
         {id:4,
-        name:'Real Estate Agent',
+        name:'Seller',
         text:'"I am 70 years of age and have bought and sold several houses. Using Endpoint was by far the easiest and simplest process that I have experienced with a closing company."',
-        avatar:'wash.png'
+        avatar:'seller2.png'
         },
+        {id:5,
+        name:'Real Estate Agent',
+        text:'"Someone is always available to answer my questions. Their customer service and streamlined process make my job much easier."',
+        avatar:'man.png'
+        },
+        {id:6,
+        name:'Real Estate Agent',
+        text:'"Our transaction was very smooth from start to finish. I love the updates via text and email with the progress on the file."',
+        avatar:'lady.png'
+        },
+        
     ])
     return(
         <>
-        <div className="mt-20">
-        <Swiper
+        <div className="mt-28 h-500 bg-swip flex">
+      <Swiper
+      className='mt-28'
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
       slidesPerView={1}
@@ -49,20 +61,23 @@ const Swip = () => {
       onSlideChange={() => console.log('slide change')}
       onSwiper={(swiper) => console.log(swiper)}
     >
-      <SwiperSlide> <Card sx={{ maxWidth: 345 }}>
-      <Avatar alt="Remy Sharp" src="buyer.png" />
+        {employee.map(item => (
+          <>
+      
+      <SwiperSlide className='overflow-hidden'> <Card className='rounded-2xl h-48 ml-450 mt-20' sx={{ maxWidth: 345 }}>
+      <Avatar className='ml-3 mt-2' alt="Remy Sharp" src={item.avatar} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-        Buyer
+        {item.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-        “Service was great. A lot of contact and very streamlined.
-        It was the easiest close ever! Appreciate the professionalism and ease of the transaction!”
+        {item.text}
         </Typography>
       </CardContent>
     </Card>
     </SwiperSlide>
-      
+          </>
+        ))}
        </Swiper>
        </div>
         </>

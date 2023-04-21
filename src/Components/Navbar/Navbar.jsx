@@ -76,7 +76,7 @@ const Navbar = () => {
     };
     return(
         <>
-        <nav className='w-full mt-4 ml-4'>
+        <nav className=' mt-4 ml-4'>
         <ul className='flex'>
             <li className='list-none'><img src="logo.svg" alt="logo" /></li>
             {myOption.map(item => (
