@@ -31,10 +31,10 @@ const Questions = () => {
     ])
     return(
         <>
-        <div className="flex mt-40">
+        <div className="flex mt-40 max-md:flex-wrap max-[380px]:relative max-[380px]:bottom-56">
             {template.map(item => (
                 <>
-                <div className='p-8'>
+                <div className='p-8 max-[380px]:relative max-[380px]:left-20'>
                 <img className='w-84 h-48 rounded-3xl mb-4' src={item.img} alt="photo" />
                 <Typography variant='h5'>{item.head}</Typography>
                 <Typography className='mt-4'>{item.text}</Typography>

@@ -10,6 +10,10 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import * as React from 'react';
 import { Typography } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import { useState } from 'react';
+import { Paper } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -54,6 +58,7 @@ const StyledMenu = styled((props) => (
   }));
 
 const Navbar = () => {
+    const [openMenu, setOpenMenu] = useState(false)
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const [selectedOption, setSelectedOption] = React.useState(null);
@@ -74,15 +79,21 @@ const Navbar = () => {
         setSelectedOption(null);
     
     };
+    const clickOpenHandler = () => {
+      setOpenMenu(true)
+    }
+    const closeHandler = () => {
+      setOpenMenu(false)
+    }
     return(
         <>
-        <nav className=' mt-4 ml-4'>
+        <nav className='mt-4 ml-4'>
         <ul className='flex'>
             <li className='list-none'><img src="logo.svg" alt="logo" /></li>
             {myOption.map(item => (
                 <>
                 <Button
-        className='bg-white text-black hover:bg-white '
+        className='bg-white text-black hover:bg-white max-md:hidden'
         id={`demo-customized-button-${item.id}`}
         aria-controls={`demo-customized-menu-${item.id}`}
         aria-haspopup="true"
@@ -120,12 +131,48 @@ const Navbar = () => {
       </StyledMenu>
                 </>
             ))}
-            <div className="flex ml-80 mt-2 cursor-pointer">
+            <MenuIcon onClick={clickOpenHandler} className='hidden max-md:block max-[390px]:relative left-64 top-3'></MenuIcon>
+            <div className="flex ml-80 mt-2 cursor-pointer max-md:hidden">
             <Typography className='mr-5 hover:text-blue-400'>signIn</Typography>
             <Typography className='hover:text-blue-400'>Contact Us</Typography>
             </div>
         </ul>
         </nav>
+        {openMenu && <>
+        <Paper className='w-500 h-600'>
+        <CloseIcon onClick={closeHandler} className='float-right mr-4 mt-5 text-3xl'></CloseIcon>
+        <div className='flex flex-wrap justify-between relative text-xl'>
+        <ul className='p-8'>
+          <li className='font-medium'>Solutions</li>
+          <li className='mt-4'>Buyers & Sellers</li>
+          <li className='mt-4'>Agents</li>
+          <li className='mt-4'>Propetch</li>
+        </ul>
+        <ul className='p-8'>
+          <li className='font-medium'>Products</li>
+          <li className='mt-4'>Platforms</li>
+          <li className='mt-4'>Api</li>
+        </ul>
+        <ul className='p-8'>
+          <li className='font-medium'>Company</li>
+          <li className='mt-4'>About Us</li>
+          <li className='mt-4'>Careers</li>
+          <li className='mt-4'>Newsroom</li>
+        </ul>
+        <ul className='p-8'>
+          <li className='font-medium'>Resources</li>
+          <li className='mt-4'>Blog</li>
+          <li className='mt-4'>White Papers</li>
+          <li className='mt-4'>Closing Guide</li>
+        </ul>
+        </div>
+        <div className='flex justify-around mt-12'>
+          <button className='bg-white text-blue-500 p-4 rounded-xl border-2 border-blue-500'>Sign In</button>
+          <button className='bg-white text-blue-500 p-4 rounded-xl border-2 border-blue-500'>Contact Us</button>
+        </div>
+        </Paper>
+        </>
+        }
         </>
     )
 }

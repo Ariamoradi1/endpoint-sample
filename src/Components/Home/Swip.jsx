@@ -49,7 +49,7 @@ const Swip = () => {
     ])
     return(
         <>
-        <div className="mt-28 h-500 bg-swip flex">
+        <div className="mt-28 h-500 bg-swip flex max-[380px]:w-500 max-[380px]:relative max-[380px]:bottom-96">
       <Swiper
       className='mt-28'
       modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -64,7 +64,7 @@ const Swip = () => {
         {employee.map(item => (
           <>
       
-      <SwiperSlide className='overflow-hidden'> <Card className='rounded-2xl h-48 ml-450 mt-20' sx={{ maxWidth: 345 }}>
+      <SwiperSlide className='overflow-hidden'> <Card className='rounded-2xl h-48 ml-450 mt-20 max-[380px]:relative max-[380px]:right-96 max-[380px]:!w-full' sx={{ maxWidth: 345 }}>
       <Avatar className='ml-3 mt-2' alt="Remy Sharp" src={item.avatar} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

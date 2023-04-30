@@ -4,6 +4,7 @@ import Help from '../Components/Home/Help'
 import Approach from '../Components/Home/Approach'
 import Swip from '../Components/Home/Swip'
 import Questions from '../Components/Home/Questions'
+import Footer from '../Components/Home/Footer'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
     <Approach/>
     <Swip/>
     <Questions/>
+    <Footer/>
     </>
   )
 }
