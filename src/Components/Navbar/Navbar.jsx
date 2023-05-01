@@ -14,6 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import { Paper } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import Link from 'next/link';
 
 const StyledMenu = styled((props) => (
     <Menu
@@ -85,6 +86,9 @@ const Navbar = () => {
     const closeHandler = () => {
       setOpenMenu(false)
     }
+    const closeLinkHandler = () => {
+      setOpenMenu(false)
+    }
     return(
         <>
         <nav className='mt-4 ml-4'>
@@ -133,7 +137,7 @@ const Navbar = () => {
             ))}
             <MenuIcon onClick={clickOpenHandler} className='hidden max-md:block max-[390px]:relative left-64 top-3'></MenuIcon>
             <div className="flex ml-80 mt-2 cursor-pointer max-md:hidden">
-            <Typography className='mr-5 hover:text-blue-400'>signIn</Typography>
+          <Link href='/Login'><Typography className='mr-5 hover:text-blue-400'>signIn</Typography></Link>
             <Typography className='hover:text-blue-400'>Contact Us</Typography>
             </div>
         </ul>
@@ -167,7 +171,7 @@ const Navbar = () => {
         </ul>
         </div>
         <div className='flex justify-around mt-12'>
-          <button className='bg-white text-blue-500 p-4 rounded-xl border-2 border-blue-500'>Sign In</button>
+         <Link onClick={closeLinkHandler} href='/Login'><button className='bg-white text-blue-500 p-4 rounded-xl border-2 border-blue-500'>Sign In</button></Link>
           <button className='bg-white text-blue-500 p-4 rounded-xl border-2 border-blue-500'>Contact Us</button>
         </div>
         </Paper>
