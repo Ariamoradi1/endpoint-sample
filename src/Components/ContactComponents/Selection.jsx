@@ -10,7 +10,7 @@ const Selection = () => {
     const [city, setCity] = useState('');
 
     const handleChange = (event) => {
-      setAge(event.target.value);
+      setCity(event.target.value);
     };
     return(
         <>
