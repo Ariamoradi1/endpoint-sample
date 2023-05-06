@@ -138,7 +138,7 @@ const Navbar = () => {
             <MenuIcon onClick={clickOpenHandler} className='hidden max-md:block max-[390px]:relative left-64 top-3'></MenuIcon>
             <div className="flex ml-80 mt-2 cursor-pointer max-md:hidden">
           <Link href='/Login'><Typography className='mr-5 hover:text-blue-400'>signIn</Typography></Link>
-            <Typography className='hover:text-blue-400'>Contact Us</Typography>
+          <Link href='Contact'><Typography className='hover:text-blue-400'>Contact Us</Typography></Link>
             </div>
         </ul>
         </nav>
@@ -172,7 +172,7 @@ const Navbar = () => {
         </div>
         <div className='flex justify-around mt-12'>
          <Link onClick={closeLinkHandler} href='/Login'><button className='bg-white text-blue-500 p-4 rounded-xl border-2 border-blue-500'>Sign In</button></Link>
-          <button className='bg-white text-blue-500 p-4 rounded-xl border-2 border-blue-500'>Contact Us</button>
+         <Link href='/Contact'> <button className='bg-white text-blue-500 p-4 rounded-xl border-2 border-blue-500'>Contact Us</button></Link>
         </div>
         </Paper>
         </>
