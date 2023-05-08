@@ -17,6 +17,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Button from "@mui/material/Button";
 import { Navigate } from "react-router-dom";
+import swal from 'sweetalert';
 
 
 const SignIn = () => {
@@ -33,7 +34,11 @@ const SignIn = () => {
 
   const clickHandler = () => {
     if (email.length < 4 || password.length < 8) {
-        alert('error')
+        swal({
+          text : 'please incorrect type',
+          icon : 'warning',
+          dangerMode : true
+        })
     } else {
         router.push('/')
     }
