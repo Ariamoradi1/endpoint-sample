@@ -18,12 +18,14 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from "@mui/material/Button";
 import { Navigate } from "react-router-dom";
 import swal from 'sweetalert';
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [isCaptcha, setIsCaptcha] = useState(false)
     const router = useRouter()
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -31,11 +33,13 @@ const SignIn = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
+  const captchaHandler = () => {
+   setIsCaptcha(true)
+  }
   const clickHandler = () => {
-    if (email.length < 4 || password.length < 8) {
+    if (email.length < 4 || password.length < 8 || isCaptcha === false) {
         swal({
-          text : 'please incorrect type',
+          text : 'please incorrect type Or do the Recaptcha',
           icon : 'warning',
           dangerMode : true
         })
@@ -47,7 +51,7 @@ const SignIn = () => {
     return(
         <>
         <div className="flex justify-center text-center mt-24">
-            <Paper className="w-600 h-600 rounded-3xl border-t-4 border-blue-500 max-[380px]:w-450 max-[380px]:ml-40">
+            <Paper className="w-600 h-700 rounded-3xl border-t-4 border-blue-500 max-[380px]:w-450 max-[380px]:ml-40">
                 <Typography variant="h4" className="mt-10">Sign In To Your Account</Typography>
                 <Typography className="mt-5">Dont have account? Sign Up</Typography>
                 <div className="flex flex-col mt-20">
@@ -86,7 +90,14 @@ const SignIn = () => {
                 </div>
                 <Typography className="float-left ml-6 mt-3">Forgot your password?</Typography>
                 <FormControlLabel className="mt-5" control={<Checkbox defaultChecked />} label="Keep me signed in on this device (not suggested for public or shared)" />
-                <Button onClick={clickHandler} className="bg-blue-500 text-white mt-20 w-500 p-2" variant="contained">Sign In</Button>
+                <div className="flex justify-center mt-10">
+                <ReCAPTCHA
+                className="text-center"
+                sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                onChange={captchaHandler}
+                />
+                </div>
+                <Button onClick={clickHandler} className="bg-blue-500 text-white mt-20 w-500 p-2 mb-10" variant="contained">Sign In</Button>
             </Paper>
         </div>
         </>
