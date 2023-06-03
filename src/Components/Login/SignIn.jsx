@@ -62,7 +62,7 @@ const SignIn = () => {
     return(
         <>
         <div className="flex justify-center text-center mt-24">
-            <Paper className="w-600 h-[800px] rounded-3xl border-t-4 border-blue-500 max-[380px]:w-450 max-[380px]:ml-40">
+            <Paper className={errors.email || errors.password ? 'h-[800px] w-600 rounded-3xl border-t-4 border-blue-500 max-[380px]:w-450 max-[380px]:ml-40': 'h-700 w-600 rounded-3xl border-t-4 border-blue-500 max-[380px]:w-450 max-[380px]:ml-40'}>
                 <Typography variant="h4" className="mt-10">Sign In To Your Account</Typography>
                 <Typography className="mt-5">Dont have account? Sign Up</Typography>
                 <div className="flex flex-col mt-20">
